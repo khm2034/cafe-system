@@ -1,0 +1,74 @@
+package com.spring.Model;
+
+import java.sql.Date;
+
+public class OrderVO {
+	
+	private Date date;
+	private int orderNum;
+	private String id;	
+	private String menu;
+	private String fullMenu;
+	private String count;
+	private String size;
+	private String total;
+	private int complete;
+	
+	
+	public int getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getMenu() {
+		return menu;
+	}
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+	public String getFullMenu() {
+		return fullMenu;
+	}
+	public void setFullMenu(String fullMenu) {
+		this.fullMenu = fullMenu;
+	}
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
+	}
+	public int getComplete() {
+		return complete;
+	}
+	public void setComplete(int complete) {
+		this.complete = complete;
+	}
+	
+	
+}

@@ -1,0 +1,7 @@
+1505044735588	Rename type 'orderVO'
+1505062415581	Move 2 resources to 'css'
+1505063634411	Rename resource 'manSalePerfom.jsp'
+1505069242212	Rename type 'userDAO'
+1505230704584	Rename type 'MemberService'
+1505230716171	Rename type 'MemberServiceImpl'
+1505230792195	Rename field 'memberService'

@@ -1,0 +1,22 @@
+1502429128584	Rename resource 'image'
+1502435287473	Delete element
+1502435612705	Rename package 'com.spring.jspweb'
+1502439845801	Rename resource 'main_banner2.jpg'
+1502449383032	Move 4 resources to 'manage'
+1502453050532	Move 4 resources to 'views'
+1502463935634	Move compilation unit
+1502463941294	Delete element
+1502465876668	Delete element
+1502465988252	Rename type 'Member'
+1502470655866	Delete element
+1502521014693	Rename resource 'memInsert.jsp'
+1502522176558	Move file
+1502523302463	Delete element
+1502523319189	Delete element
+1502523462995	Delete element
+1502523530672	Delete element
+1502526653750	Delete element
+1502529250561	Rename resource 'config-mybatis.xml'
+1502529301105	Move 'memberMapper.xml' to 'mapper'
+1502545775737	Delete element
+1502546995952	Rename type 'InsertUser'

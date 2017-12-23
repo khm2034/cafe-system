@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bluescreen">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:background="#d1af94"
+        android:layout_marginTop="150dp"
+        android:text="메뉴"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:id="@+id/menuButton"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:background="#efd9b0"
+        android:text="좌석예약"
+        android:textSize="25dp"
+        android:id="@+id/seatButton"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:background="#efcec5"
+        android:text="마이페이지"
+        android:textSize="25dp"
+        android:id="@+id/mypage"/>
+
+      <ImageView
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:src="@drawable/coffee"
+          android:layout_gravity="center"
+          android:layout_marginTop="100dp"/>
+</LinearLayout>
+
+</RelativeLayout>

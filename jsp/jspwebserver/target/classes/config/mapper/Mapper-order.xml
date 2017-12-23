@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="order">
+
+    <select id="orderList" resultType="com.spring.Model.OrderVO" parameterType="int">
+        SELECT * FROM orderInfo WHERE complete = #{num}
+    </select>
+    
+	<insert id="insertOrder" parameterType="com.spring.Model.OrderVO">
+		INSERT INTO orderInfo (orderNum, orderDate, userNum, totalPrice, complete)
+		VALUES(#{orderNum}, #{orderDate}, #{userNum}, #{totalPrice}, #{complete})
+	</insert>
+	
+	<select id="getNextOrderId" resultType="int">
+		SELECT IFNULL(MAX(orderNum), 0)+1 
+		FROM orderInfo
+	</select>
+	
+	<update id="updateOrder" parameterType="com.spring.Model.OrderVO">
+		UPDATE orderInfo SET
+			complete = #{complete}
+		WHERE orderNum = #{orderNum}
+	</update>
+
+	<delete id="deleteOrder" parameterType="com.spring.Model.OrderVO">
+		DELETE FROM orderInfo 
+		WHERE orderNum = #{orderNum} AND date = #{date} 
+	</delete>
+	
+	<select id="searchOrder" resultType="com.spring.Model.OrderVO" parameterType="int">
+		SELECT * FROM orderInfo WHERE orderNum = #{orderNum} 
+	</select>
+	
+	<insert id="insertCoffeeItem" parameterType="com.spring.Model.OrderItemVO">
+		INSERT INTO orderCoffeeItem VALUES(#{orderNum}, #{menuId}, #{type}, #{size}, #{count}, #{price})
+	</insert>
+	<insert id="insertBeverageItem" parameterType="com.spring.Model.OrderItemVO">
+		INSERT INTO orderBeverageItem VALUES(#{orderNum}, #{menuId}, #{type}, #{size}, #{count}, #{price})
+	</insert>
+	<insert id="insertDessertItem" parameterType="com.spring.Model.OrderItemVO">
+		INSERT INTO orderDessertItem VALUES(#{orderNum}, #{menuId}, #{count}, #{price})
+	</insert>
+	
+	<select id="coffeeItemList" parameterType="int" resultType="com.spring.Model.OrderItemVO">
+		SELECT * FROM orderCoffeeItem 
+		JOIN coffee ON orderCoffeeItem.menuId = coffee.id
+		WHERE orderNum = #{orderNum}
+	</select>
+	<select id="beverageItemList" parameterType="int" resultType="com.spring.Model.OrderItemVO">
+		SELECT * FROM orderBeverageItem
+		JOIN beverage ON orderBeverageItem.menuId = beverage.id 
+		WHERE orderNum = #{orderNum}
+	</select>
+	<select id="dessertItemList" parameterType="int" resultType="com.spring.Model.OrderItemVO">
+		SELECT * FROM orderDessertItem
+		JOIN dessert ON orderDessertItem.menuId = dessert.id 
+		WHERE orderNum = #{orderNum}
+	</select>
+</mapper>

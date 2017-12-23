@@ -1,0 +1,11 @@
+1504444392207	Copy file
+1504453427147	Rename resource 'Mapper.xml'
+1504453800159	Rename field 'productImageURL'
+1504453806039	Rename field 'productName'
+1504453809696	Rename field 'ImageURL'
+1504453813054	Rename field 'productSPrice'
+1504453816651	Rename field 'productRPrice'
+1504453826431	Rename field 'productLPrice'
+1504533186410	Rename method 'updateProduct'
+1504533240988	Rename method 'allUpdateProduct'
+1504886779133	Rename resource 'Mapper-product.xml'

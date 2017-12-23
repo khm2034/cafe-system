@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="seat">
+	<insert id="insertSeat" parameterType="com.spring.Model.SeatVO">
+		INSERT INTO seat (seatNum, userNum)
+		VALUES
+		(#{seatNum}, #{userNum})
+	</insert>
+	
+	<select id="seatList" resultType="com.spring.Model.SeatVO">
+		SELECT * FROM seat
+	</select>
+	
+	<delete id="deleteSeat"  parameterType="com.spring.Model.SeatVO">
+		DELETE FROM seat WHERE seatNum = #{seatNum}
+	</delete>
+	
+	<select id="searchSeat" parameterType="int" resultType="com.spring.Model.SeatVO">
+		SELECT * FROM seat WHERE userNum = #{userNum}
+	</select>
+</mapper>

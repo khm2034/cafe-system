@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="manager">
+
+    <select id="managerList" resultType="com.spring.Model.ManagerVO">
+        SELECT * FROM manager
+    </select>
+    
+	<insert id="insertManager" parameterType="com.spring.Model.ManagerVO">
+		INSERT INTO manager (ManagerNum, ManagerId, ManagerPw, ManagerName, ManagerEmail, ManagerPhone, ManagerBirth, ManagerGender, ManagerRegdate)
+		VALUES
+		(#{managerNum}, #{managerId}, #{managerPw}, #{managerName}, #{managerEmail}, #{managerPhone}, #{managerBirth}, #{managerGender}, #{managerRegDate})
+	</insert>
+	
+	<select id="duplication" parameterType="String" resultType="com.spring.Model.ManagerVO">
+		SELECT * FROM manager WHERE ManagerId = #{id}
+	</select>
+	    
+	<select id="login" parameterType="String" resultType="com.spring.Model.ManagerVO">
+		SELECT * FROM manager WHERE ManagerId = #{managerId} AND ManagerPw = #{managerPw}
+	</select>
+	
+	<select id="checkId" parameterType="int" resultType="com.spring.Model.ManagerVO">
+		SELECT * FROM manager WHERE ManagerNum = #{managerNum}
+	</select>
+</mapper>

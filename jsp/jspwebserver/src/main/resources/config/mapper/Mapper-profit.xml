@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="profit">
+	<insert id="insertProfit" parameterType="com.spring.Model.ProfitVO">
+		INSERT INTO profit (id, date, gender, age, price)
+		VALUES
+		(#{id}, #{date}, #{gender}, #{age}, #{price})
+	</insert>
+	
+	<select id="profitList" resultType="com.spring.Model.ProfitVO">
+		SELECT * FROM profit
+	</select>
+	
+	<select id="getNextProfitId" resultType="int">
+		SELECT IFNULL(MAX(id), 0)+1 
+		FROM profit
+	</select>
+	
+	<insert id="insertProfitItem" parameterType="com.spring.Model.ProfitItemVO">
+		INSERT INTO profitItem (profitId, menuName, count)
+		VALUES (#{profitId}, #{menuName}, #{count})
+	</insert>
+	
+	<select id="profitItemList" resultType="com.spring.Model.ProfitItemVO">
+		SELECT * FROM profitItem
+	</select>
+	
+	<select id="profitAgeInfo" resultType="com.spring.Model.ProfitItemVO" parameterType="hashmap">
+		SELECT i.menuName, i.count FROM profit AS p JOIN profitItem AS i ON p.id = i.profitId WHERE age BETWEEN #{sAge} AND #{eAge} 
+	</select>
+	
+	<select id="profitGenderInfo" resultType="com.spring.Model.ProfitItemVO" parameterType="String">
+		SELECT i.menuName, i.count FROM profit AS p JOIN profitItem AS i ON p.id = i.profitId WHERE gender = #{gender} 
+	</select>
+	
+</mapper>

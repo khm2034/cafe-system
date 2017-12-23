@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="dessert">
+	<insert id="insertProduct" parameterType="com.spring.Model.ProductVO">
+		INSERT INTO dessert (imageURL, absoluteURL, id, saveFileName, name, rPrice)
+		VALUES
+		(#{imageURL}, #{absoluteURL}, #{id}, #{saveFileName}, #{name}, #{rPrice})
+	</insert>
+	
+	<select id="productList" resultType="com.spring.Model.ProductVO">
+		SELECT * FROM dessert
+	</select>
+	
+	<select id="searchProduct" parameterType="com.spring.Model.ProductVO" resultType="com.spring.Model.ProductVO">
+		SELECT * FROM dessert WHERE name = #{name}
+	</select>
+	
+	<update id="allUpdateProduct" parameterType="com.spring.Model.ProductVO">
+		UPDATE dessert SET
+			imageURL = #{imageURL},
+			absoluteURL = #{absoluteURL},
+			saveFileName = #{saveFileName},
+			name = #{name},
+			rPrice = #{rPrice}}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateProduct" parameterType="com.spring.Model.ProductVO">
+		UPDATE dessert SET
+			name = #{name},
+			rPrice = #{rPrice}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteProduct"  parameterType="com.spring.Model.ProductVO">
+		DELETE FROM dessert WHERE id = #{id}
+	</delete>
+	
+	<select id="searchId" resultType="String" parameterType="String">
+		SELECT id FROM dessert WHERE name = #{menu} 
+	</select>
+</mapper>

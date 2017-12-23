@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;checkPw&apos; in &apos;com.spring.Model.InsertUserVO&apos; to &apos;pw_check&apos;&#x0D;&#x0A;- Original project: &apos;jspwebserver&apos;&#x0D;&#x0A;- Original element: &apos;com.spring.Model.InsertUserVO.checkPw&apos;&#x0D;&#x0A;- Renamed element: &apos;com.spring.Model.InsertUserVO.pw_check&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;checkPw&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java&lt;com.spring.Model{InsertUserVO.java[InsertUserVO^checkPw" name="pw_check" references="true" setter="false" stamp="1503479583051" textual="false" version="1.0"/>
+</session>

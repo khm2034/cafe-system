@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="beverage">
+	<insert id="insertProduct" parameterType="com.spring.Model.ProductVO">
+		INSERT INTO beverage (imageURL, absoluteURL, id, saveFileName, name, sPrice, rPrice, lPrice, type)
+		VALUES
+		(#{imageURL}, #{absoluteURL}, #{id}, #{saveFileName}, #{name}, #{sPrice}, #{rPrice}, #{lPrice}, #{type})
+	</insert>
+	
+	<select id="productList" resultType="com.spring.Model.ProductVO">
+		SELECT * FROM beverage
+	</select>
+	
+	<select id="searchProduct" parameterType="com.spring.Model.ProductVO" resultType="com.spring.Model.ProductVO">
+		SELECT * FROM beverage WHERE name = #{name}
+	</select>
+	
+	<update id="allUpdateProduct" parameterType="com.spring.Model.ProductVO">
+		UPDATE beverage SET
+			imageURL = #{imageURL},
+			absoluteURL = #{absoluteURL},
+			saveFileName = #{saveFileName},
+			name = #{name},
+			sPrice = #{sPrice},
+			rPrice = #{rPrice},
+			lPrice = #{lPrice},
+			type = #{type}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateProduct" parameterType="com.spring.Model.ProductVO">
+		UPDATE beverage SET
+			name = #{name},
+			sPrice = #{sPrice},
+			rPrice = #{rPrice},
+			lPrice = #{lPrice},
+			type = #{type}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteProduct"  parameterType="com.spring.Model.ProductVO">
+		DELETE FROM beverage WHERE id = #{id}
+	</delete>
+	
+	<select id="searchId" resultType="String" parameterType="String">
+		SELECT id FROM beverage WHERE name = #{menu} 
+	</select>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="stock">
+	<insert id="insertStock" parameterType="com.spring.Model.StockVO">
+		INSERT INTO stock (date, name, unitPrice, amount, id)
+		VALUES
+		(#{date}, #{name}, #{unitPrice}, #{amount}, #{id})
+	</insert>
+	
+	<select id="stockList" resultType="com.spring.Model.StockVO">
+		SELECT * FROM stock
+	</select>
+	
+	<select id="searchStock" parameterType="com.spring.Model.StockVO" resultType="com.spring.Model.StockVO">
+		SELECT * FROM stock WHERE id = #{id}
+	</select>
+	
+	<update id="updateStock" parameterType="com.spring.Model.StockVO">
+		UPDATE stock SET
+			date = #{date},
+			name = #{name},
+			unitPrice = #{unitPrice},
+			amount = #{amount}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteStock"  parameterType="com.spring.Model.StockVO">
+		DELETE FROM stock WHERE id = #{id}
+	</delete>
+</mapper>
